@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+span .addToFavorites:hover {
+  color: rgb(137, 5, 5) !important;
+}
