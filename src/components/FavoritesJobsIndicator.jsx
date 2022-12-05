@@ -9,7 +9,9 @@ import * as Icon from "react-bootstrap-icons";
 const FavoritesJobsIndicator = () => {
   const navigate = useNavigate();
 
-  const favoritesLength = useSelector((store) => store.jobs.favorites.length);
+  const favoritesLength = useSelector(
+    (store) => store.favorites.favorites.length
+  );
   // now cartLength is always going to be a digit: the length of the
   // content array sitting in the cart slice of the Store
 

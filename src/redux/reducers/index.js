@@ -1,6 +1,13 @@
+import { ADD_TO_FAVORITES } from "../actions";
+import { REMOVE_FROM_FAVORITES } from "../actions";
+
 const initialState = {
   jobs: {
     favorites: [], // we're going to put our favourite jobs here!
+  },
+
+  searchedJobs: {
+    results: [],
   },
 };
 
@@ -12,7 +19,7 @@ const mainReducer = (state = initialState, action) => {
     // but now, just for starting, let's write just the default
     // so we can conclude this function and finish our store/index.js
 
-    case "ADD_TO_FAVORITES":
+    case ADD_TO_FAVORITES:
       return {
         ...state,
         jobs: {
@@ -21,7 +28,7 @@ const mainReducer = (state = initialState, action) => {
         },
       };
 
-    case "REMOVE_FROM_FAVORITES":
+    case REMOVE_FROM_FAVORITES:
       return {
         ...state,
         jobs: {

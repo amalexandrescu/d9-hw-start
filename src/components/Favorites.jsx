@@ -2,13 +2,14 @@ import { Col, Row, Button } from "react-bootstrap";
 // import { FaTrash } from 'react-icons/fa'
 import { useSelector, useDispatch } from "react-redux";
 import * as Icon from "react-bootstrap-icons";
+import { removeFromFavoritesAction } from "../redux/actions";
 
 // Cart now needs to read/"write" to the store, reading the value
 // of cart.content and being able to dispatch an action for removing
 // an element from the cart!
 
 const Favorites = () => {
-  const favorites = useSelector((state) => state.jobs.favorites);
+  const favorites = useSelector((state) => state.favorites.favorites);
   const dispatch = useDispatch();
 
   return (
@@ -20,10 +21,11 @@ const Favorites = () => {
               <span
                 className="text-danger mr-2"
                 onClick={() => {
-                  dispatch({
-                    type: "REMOVE_FROM_FAVORITES",
-                    payload: i,
-                  });
+                  dispatch(removeFromFavoritesAction(i));
+                  // dispatch({
+                  //   type: "REMOVE_FROM_FAVORITES",
+                  //   payload: i,
+                  // });
                 }}
               >
                 <Icon.TrashFill />

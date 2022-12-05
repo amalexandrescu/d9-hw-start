@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
+import { addToFavoritesAction } from "../redux/actions";
 
 const Job = ({ data, show }) => {
   const dispatch = useDispatch();
@@ -16,10 +17,11 @@ const Job = ({ data, show }) => {
         {show && (
           <span
             onClick={() => {
-              dispatch({
-                type: "ADD_TO_FAVORITES",
-                payload: data,
-              });
+              dispatch(addToFavoritesAction(data));
+              // dispatch({
+              //   type: "ADD_TO_FAVORITES",
+              //   payload: data,
+              // });
             }}
           >
             <Icon.HeartFill className="ml-2 addToFavorites text-danger" />
