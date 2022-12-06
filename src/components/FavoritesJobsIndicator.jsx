@@ -12,6 +12,7 @@ const FavoritesJobsIndicator = () => {
   const favoritesLength = useSelector(
     (store) => store.favorites.favorites.length
   );
+  console.log(favoritesLength);
   // now cartLength is always going to be a digit: the length of the
   // content array sitting in the cart slice of the Store
 

@@ -5,6 +5,20 @@ const initialState = {
 };
 
 const favoritesReducer = (state = initialState, action) => {
+  // const newFunct = (payload) => {
+  //   let includes = false;
+  //   for (let i = 0; i < state.favorites.length; i++) {
+  //     if (state.favorites.favorites[i].id === payload.id) {
+  //       includes = true;
+  //       break;
+  //     }
+  //   }
+  //   return includes;
+  // };
+
+  // if (action.type === ADD_TO_FAVORITES && newFunct(action.payload))
+  //   return state;
+
   switch (action.type) {
     case ADD_TO_FAVORITES:
       return {

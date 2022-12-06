@@ -1,6 +1,8 @@
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
 export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const GET_JOBS = "GET_JOBS";
+export const IS_LOADING_JOBS = "IS_LOADING_JOBS";
+export const IS_ERROR_JOBS = "IS_ERROR_JOBS";
 
 export const addToFavoritesAction = (data) => {
   return {
@@ -35,11 +37,34 @@ export const getJobsAction = (query) => {
           payload: data, // the reducer is just being given
           // the final result, the array of jobs! so it cannot fail :)
         });
+
+        dispatch({
+          type: IS_LOADING_JOBS,
+          payload: false,
+        });
       } else {
         console.log("error");
+        dispatch({
+          type: IS_LOADING_JOBS,
+          payload: false,
+        });
+
+        dispatch({
+          type: IS_ERROR_JOBS,
+          payload: true,
+        });
       }
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: IS_LOADING_JOBS,
+        payload: false,
+      });
+
+      dispatch({
+        type: IS_ERROR_JOBS,
+        payload: true,
+      });
     }
   };
 };
