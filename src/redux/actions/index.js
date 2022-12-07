@@ -42,6 +42,11 @@ export const getJobsAction = (query) => {
           type: IS_LOADING_JOBS,
           payload: false,
         });
+
+        dispatch({
+          type: IS_ERROR_JOBS,
+          payload: false,
+        });
       } else {
         console.log("error");
         dispatch({
